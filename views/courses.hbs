@@ -1,0 +1,61 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>{{title}}</title>
+  </head>
+  <body>
+    <nav class="nav__containar">
+      <div class="nav-wrapper">
+        <a href="#" class="brand-logo">Приложение курсов</a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <li><a href="/">Главная</a></li>
+          <li><a href="/about">О нас</a></li>
+          {{#if isCourses}}
+            <li class="active"><a href="/courses">Курсы</a></li>
+          {{else}}
+            <li class="active"><a href="/courses">Курсы</a></li>
+          {{/if}}
+          <li><a href="/add">Добавить курс</a></li>
+        </ul>
+      </div>
+    </nav>
+    <div class="container">
+      <h1>{{page}}</h1>
+
+      {{#if courses.length}}
+        {{#each courses}}
+
+          <div class="row">
+            <div class="col s6 offset-s3">
+              <div class="card">
+                <div class="card-image">
+                  <img src="{{img}}" alt="{{title}}" />
+                </div>
+                <div class="card-content">
+                  <h3>
+                    <span class="card-title">{{title}}</span>
+                  </h3>
+                  <p class="price">{{price}}</p>
+                </div>
+                <div class="card-action">
+                  <a href="#">Открыт курс</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        {{/each}}
+      {{else}}
+      {{/if}}
+
+      <a href="/">На главную</a>
+    </div>
+    <script src="../public/app.js"></script>
+  </body>
+</html>

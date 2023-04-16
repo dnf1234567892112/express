@@ -1,0 +1,74 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>{{title}}</title>
+  </head>
+  <body>
+    <nav class="nav__containar">
+      <div class="nav-wrapper">
+        <a href="#" class="brand-logo">Приложение курсов</a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <li><a href="/">Главная</a></li>
+          <li><a href="/about">О нас</a></li>
+          <li><a href="/courses">Курсы</a></li>
+          {{#if isAdd}}
+            <li class="active"><a href="/add">Добавить курс</a></li>
+          {{else}}
+            <li><a href="/add">Добавить курс</a></li>
+          {{/if}}
+        </ul>
+      </div>
+    </nav>
+    <div class="container">
+      <h1>{{page}}</h1>
+
+      <form action="/add" method="POST">
+        <div class="input-field">
+          <input
+            placeholder="Введите название курса"
+            id="title"
+            name="title"
+            type="text"
+            class="validate"
+            required
+          />
+          <span class="helper-text" data-error="wrong"></span>
+          <label for="title"></label>
+        </div>
+        <div class="input-field">
+          <input
+            placeholder="Цена курса"
+            name="price"
+            id="price"
+            type="text"
+            class="validate"
+            required
+          />
+          <span class="helper-text" data-error="wrong"></span>
+          <label for="price"></label>
+        </div>
+
+        <div class="input-field">
+          <input
+            placeholder="Картинка курса"
+            name="img"
+            id="img"
+            type="text"
+            class="validate"
+            required
+          />
+          <span class="helper-text" data-error="wrong"></span>
+          <label for="img"></label>
+        </div>
+        <button class="btn btn-primary">Отправить</button>
+      </form>
+    </div>
+  </body>
+</html>
